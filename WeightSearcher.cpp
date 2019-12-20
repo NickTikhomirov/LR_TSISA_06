@@ -1,3 +1,4 @@
+#pragma once
 #include <iostream>
 #include "WeightSearcher.h"
 
@@ -33,7 +34,7 @@ WeightSearcher::~WeightSearcher()
 
 void WeightSearcher::initF(){
 	int M = a.size()/2;
-	f.resize(K+1);
+	f = *f_base;
 	for (size_t i = M; i <= K-M; i++) {
 		f[i] = 0;
 		for (size_t j = i-M; j <= i+M; ++j) {

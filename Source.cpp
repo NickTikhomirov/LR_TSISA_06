@@ -1,3 +1,4 @@
+#pragma once
 #include <iostream>
 #include <random>
 #include "WeightSearcher.h"
@@ -46,7 +47,7 @@ double noise() {
 
 
 int main() {
-	
+
 	Logger logger("logger1.txt");
 	Logger logger2("logger2.txt");
 	Logger logger3("logger3.txt");

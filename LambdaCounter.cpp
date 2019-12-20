@@ -1,19 +1,25 @@
+#pragma once
 #include "LambdaCounter.h"
 #include <iomanip>
+#include "Logger.h"
+
 
 using namespace std;
 
-LambdaCounter::LambdaCounter(int r1, double l1, int N)
-{
+LambdaCounter::LambdaCounter(int r1, double l1, int N){
+	static Logger logir3("logir3.txt");
+	static Logger logir5("logir5.txt");
 	lambda = l1;
 	r = r1;
 	bestSet = WeightSearcher(r1,l1);
 	for (size_t i = 1; i < N;++i) {
 		WeightSearcher w(r1, l1);
-		if (bestSet < w) {
+		if (w < bestSet) {
 			bestSet = w;
 		}
 	}
+	if(r1 == 3) logir3.write(bestSet.w, bestSet.d);
+	else logir5.write(bestSet.w, bestSet.d);
 }
 
 
